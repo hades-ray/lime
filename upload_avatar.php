@@ -5,7 +5,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-$db = mysqli_connect("localhost", "root", "", "lime");
+require_once("config.php");
 
 $username = $_SESSION['username'];
 $target_dir = "uploads/avatars/"; // папка для аватаров

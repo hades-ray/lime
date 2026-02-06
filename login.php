@@ -1,14 +1,18 @@
 <?php
     session_start();
-    $db=mysqli_connect("localhost","root","","lime");
+    require_once("config.php");
 
     if(isset($_POST["log"])){
         $phone=$_POST["phone"];
         $temp=0;
-        $sql=mysqli_query( $db,"SELECT * FROM users WHERE phone='$phone'");
+        // В login.php
+        $stmt = $db->prepare("SELECT * FROM users WHERE phone = ?");
+        $stmt->bind_param("s", $phone);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        if (mysqli_num_rows($sql) > 0) {
-            $res = mysqli_fetch_array($sql);
+        if (mysqli_num_rows($result) > 0) {
+            $res = mysqli_fetch_array($result);
             $_SESSION['username'] = $res['username']; // Сохраняем имя пользователя из БД
             header('Location: index.php');
             exit();

@@ -1,9 +1,11 @@
 <?php
     session_start();
-    $db=mysqli_connect("localhost","root","","lime");
+    require_once("config.php");
 
     $isLoggedIn = isset($_SESSION['username']);
     $username = $isLoggedIn ? $_SESSION['username'] : '';
+    $isLoggedIn = isset($_SESSION['phone']);
+    $phone = $isLoggedIn ? $_SESSION['phone'] :'';
 
     // Получаем данные пользователя, включая аватар
     $stmt = $db->prepare("SELECT phone, avatar FROM users WHERE username = ?");
@@ -45,8 +47,8 @@
             </div>
         </div>
         <div class="info-right">
-            <h2 id="username">hadesray</h2>
-            <h4 id="phone" style="opacity: 60%;">+79538458598</h4>
+            <h2 id="username"><?php echo htmlspecialchars($username)?></h2>
+            <h4 id="phone" style="opacity: 60%;"><?php echo htmlspecialchars($phone)?></h4>
             <a id="logout" href="logout.php">Выйти</a>
         </div>
     </div>

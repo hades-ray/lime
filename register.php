@@ -1,10 +1,13 @@
 <?php
-$db=mysqli_connect("localhost","root","","lime");
+session_start();    
+require_once("config.php");
 
 if(isset($_POST['reg'])){
     $username=$_POST['username'];
     $phone=$_POST['phone'];
-    mysqli_query($db,"INSERT INTO users VALUES ('', '$username', '$phone', 'user')");
+    $stmt = $db->prepare("INSERT INTO users (username, phone, role) VALUES (?, ?, 'user')");
+    $stmt->bind_param("ss", $username, $phone);
+    $stmt->execute();
     header("Location:index.php");
 }
 ?>

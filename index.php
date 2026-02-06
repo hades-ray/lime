@@ -1,7 +1,7 @@
 <?php
     // Запускаем сессию
     session_start();
-    $db=mysqli_connect("localhost","root","","lime");
+    require_once("config.php");
 
     // Проверяем, авторизован ли пользователь
     $isLoggedIn = isset($_SESSION['username']);
