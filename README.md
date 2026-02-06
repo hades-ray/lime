@@ -34,7 +34,7 @@
 
 - Скопируйте config.php.example в config.php
 
-- Откройте config.php и измените настройки:
+**- Откройте config.php и измените настройки:**
 
--- $db_pass = ''; // Пароль от MySQL
--- $db_name = 'lime'; // Название вашей БД
+- $db_pass = ''; // Пароль от MySQL
+- $db_name = 'lime'; // Название вашей БД
