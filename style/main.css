@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a, select, option {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 20px;
+}
+
+body {
+    font-family: 'Montserrart', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    padding-left: 7%;
+    padding-right: 7%;
+    background-color: #16be5c;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+
+#logo a p {
+    font-weight: 800;
+    font-size: 46px;
+}
+
+.search input {
+    background-color: #ebebeb;
+    justify-content: center;
+    width: 45vw;
+    height: 50px; 
+    border-radius: 50px;
+    outline: none;
+    border: none;   
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+.menu {
+    display: flex;
+}
+
+.select:after {
+  content: "☰";
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  z-index: 1;
+  text-align: center;
+  width: 10%;
+  height: 100%;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.select {
+  position: relative;
+  display: inline-block;
+  margin-right: 30px;
+}
+
+select {
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 50px;
+    padding-left: 20px;
+    padding-right: 25px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    height: 50px;
+}
+
+.link {
+    margin-top: 14px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #ebebeb;
+    background-color: black;
+    padding: 13px 30px;
+    border-radius: 50px;
+    outline: none;
+}
+
+.event {
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 50px;
+    background-color: #ebebeb;
+    border-radius: 50px;
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.event-left {
+    margin: 40px;
+}
+
+.event-right img {
+    pointer-events: none;
+    height: 100%;
+    width: 50vw;
+    border-radius: 50px;
+}
+
+.products {
+    margin-bottom: 20px;
+    padding-left: 7%;
+    padding-right: 7%;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 25px;
+}
+
+#top-content img {
+    height: 350px;
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+#sale {
+    margin-bottom: 10px;
+}
+
+#rate {
+    padding-bottom: 20px;
+}
+
+#basket {
+    width: 100%;
+    background-color: #16be5c;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 40px;
+    border-radius: 12px;
+    transition: 200ms all;
+}
+
+#basket:hover {
+    background-color: #2cc96d;
+}
+
+
+
+/* для адаптивности карточек товаров */
+/* @media(max-width:1440px) {
+    .products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    }
+} */
