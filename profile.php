@@ -41,8 +41,11 @@
                 <img src="uploads/avatars/<?php echo htmlspecialchars($avatar); ?>" alt="Аватар" class="avatar">
                 <!-- Форма для загрузки нового аватара -->
                 <form action="upload_avatar.php" method="POST" enctype="multipart/form-data">
-                    <input type="file" name="avatar" accept="image/*" required>
-                    <button type="submit">Загрузить аватар</button>
+                    <label for="upload-photo" id="custom-upload-file">
+                        Загрузить фото
+                        <input id="upload-photo" style="display:none;" type="file" name="avatar" accept="image/*" required placeholder="Выберите фото">
+                    </label>
+                    <button type="submit">Сохранить изменения</button>
                 </form>
             </div>
         </div>

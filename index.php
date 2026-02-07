@@ -50,7 +50,7 @@
             <p>Успейте до 18 марта 2026 года!</p>
         </div>
         <div class="event-right">
-            <img src="img/rocket.jpg" alt="картинка с акцией">
+            <img src="img/sale.jpg" alt="картинка с акцией">
         </div>
     </div>
     <div class="products">

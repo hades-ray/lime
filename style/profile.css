@@ -48,32 +48,9 @@ header {
     width: 30%;
 }
 
-.info-right {
-    padding-top: 40px;
-    padding-left: 40px;
-    width: 70%;
-}
-
-#phone {
-    padding-bottom: 50px;
-}
-
-#logout {
-    background-color: #ffafaf;
-    padding: 12px 20px;
-    border-radius: 12px;
-    border: 2px solid #ff5f5f;
-    outline: none;
-    transition: all 200ms;
-}
-
-#logout:hover {
-    background-color: #ff5f5f;
-    color: #ebebeb;
-}
-
 .avatar-container {
     text-align: center;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 
@@ -86,19 +63,61 @@ header {
     margin-bottom: 15px;
 }
 
-.avatar-container form input[type="file"] {
-    margin-bottom: 10px;
+.avatar-container form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
 }
 
-.avatar-container form button {
-    background-color: #4CAF50;
+#custom-upload-file {
+    margin-bottom: 20px;
+    background-color: #16be5c;
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.avatar-container form button {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    background-color: #16be5c;
+    transition: all 200ms;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
 }
 
 .avatar-container form button:hover {
     background-color: #45a049;
 }
+
+.info-right {
+    padding-top: 40px;
+    padding-left: 40px;
+    width: 70%;
+}
+
+#phone {
+    padding-bottom: 50px;
+}
+
+#logout {
+    padding: 12px 30px;
+    border-radius: 12px;
+    border: 2px solid #ff5f5f;
+    outline: none;
+    transition: all 200ms;
+}
+
+#logout:hover {
+    background-color: #ff5f5f;
+    color: #ebebeb;
+}
+
+
+
