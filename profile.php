@@ -4,9 +4,7 @@
 
     $isLoggedIn = isset($_SESSION['username']);
     $username = $isLoggedIn ? $_SESSION['username'] : '';
-    $isLoggedIn = isset($_SESSION['phone']);
-    $phone = $isLoggedIn ? $_SESSION['phone'] :'';
-
+    
     // Получаем данные пользователя, включая аватар
     $stmt = $db->prepare("SELECT phone, avatar FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
@@ -17,6 +15,12 @@
 
     $avatar = !empty($user['avatar']) ? $user['avatar'] : 'default_avatar.jpg';
     $phone = $user['phone'] ?? '';
+
+    // Проверяем, есть ли у пользователя магазин
+    $query = "SELECT id FROM magazine WHERE owner = ?";
+    $stmt = $db->prepare($query);
+    $stmt->execute([$username]);
+    $has_magazine = $stmt->fetch() ? true : false;
 ?>
 
 <!DOCTYPE html>
@@ -47,12 +51,19 @@
                     </label>
                     <button type="submit">Сохранить изменения</button>
                 </form>
+                <a id="logout" href="logout.php">Выйти</a>
             </div>
         </div>
         <div class="info-right">
             <h2 id="username"><?php echo htmlspecialchars($username)?></h2>
             <h4 id="phone" style="opacity: 60%;"><?php echo htmlspecialchars($phone)?></h4>
-            <a id="logout" href="logout.php">Выйти</a>
+            <?php if ($has_magazine): ?>
+                <!-- Если магазин есть - показываем ссылку на профиль магазина -->
+                <a id="magazine" href="magazine.php">Мой магазин</a>
+            <?php else: ?>
+                <!-- Если магазина нет - показываем кнопку создания -->
+                <a id="create" href="create-magazine.php">Создать свой магазин</a>
+            <?php endif; ?>
         </div>
     </div>
 </body>

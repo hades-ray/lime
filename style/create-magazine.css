@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-family: 'Montserrat';
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+#logo {
+    width: 110px;
+}
+
+#logo a p {
+    font-weight: 800;
+    font-size: 46px;
+}
+
+.create {
+    background-color: #ebebeb;
+    width: 50vw;
+    height: 50vh;
+    margin: auto;border-radius: 50px;
+}
+
+.create form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 15%;
+    gap: 20px;
+}
+
+.input {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 19px;
+    outline: none;
+    border: none;
+    height: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 12px;
+}
+
+form input {
+    margin-top: 75px;
+}
+
+form textarea {
+    padding-top: 15px;
+    height: 5vh; /* Устанавливаем высоту примерно 5% от viewport */
+    min-height: 70px; /* Минимальная высота как у input */
+    max-height: 15vh;
+    resize: vertical; /* Разрешаем изменение только по вертикали */
+}
+
+form button {
+    outline: none;
+    border: none;
+    height: 70px;
+    border-radius: 12px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 19px;
+    cursor: pointer;
+    color: white;
+    background-color: #16be5c;
+}
+

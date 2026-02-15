@@ -11,7 +11,7 @@ a {
 }
 
 body {
-    font-family: 'Montserrart';
+    font-family: 'Montserrat';
     padding: 0;
     margin: 0;
 }
@@ -28,7 +28,6 @@ header {
 }
 
 #logo a p {
-    font-family: 'Montserrat';
     font-weight: 800;
     font-size: 46px;
 }
@@ -90,20 +89,11 @@ header {
     border: none;
     border-radius: 12px;
     cursor: pointer;
+    margin-bottom: 50px;
 }
 
 .avatar-container form button:hover {
     background-color: #45a049;
-}
-
-.info-right {
-    padding-top: 40px;
-    padding-left: 40px;
-    width: 70%;
-}
-
-#phone {
-    padding-bottom: 50px;
 }
 
 #logout {
@@ -118,6 +108,24 @@ header {
     background-color: #ff5f5f;
     color: #ebebeb;
 }
+
+.info-right {
+    padding-top: 40px;
+    padding-left: 40px;
+    width: 70%;
+}
+
+#phone {
+    margin-bottom: 50px;
+}
+
+#create, #magazine {
+    background-color: #16be5c;
+    padding: 12px 17px;
+    border-radius: 12px;
+    color: white;
+}
+
 
 
 

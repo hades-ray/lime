@@ -44,7 +44,7 @@
             </div>
         </div>
     </header>
-    <div class="event">
+    <!-- <div class="event">
         <div class="event-left">
             <h1>Скидки на товары до 90%!</h1>
             <p>Успейте до 18 марта 2026 года!</p>
@@ -52,7 +52,7 @@
         <div class="event-right">
             <img src="img/events.jpg" alt="картинка с акцией">
         </div>
-    </div>
+    </div> -->
     <div class="products">
         <div class="card">
             <a href="#"> <!--ссылка на товар-->

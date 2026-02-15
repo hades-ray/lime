@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-family: 'Montserrat';
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+#logo {
+    width: 110px;
+}
+
+#logo a p {
+    font-weight: 800;
+    font-size: 46px;
+}
+
+.new-prod {
+    background-color: #ebebeb;
+    width: 50vw;
+    height: 70vh;
+    margin: auto;
+    border-radius: 50px;
+}
+
+.new-prod form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 15%;
+    gap: 20px;
+}
+
+.input {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 19px;
+    outline: none;
+    border: none;
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 12px;
+}
+
+form input[name="product-title"] {
+    margin-top: 75px;
+}
+
+form textarea {
+    padding-top: 15px;
+    height: 5vh; /* Устанавливаем высоту примерно 5% от viewport */
+    min-height: 70px; /* Минимальная высота как у input */
+    max-height: 15vh;
+    resize: vertical; /* Разрешаем изменение только по вертикали */
+}
+
+form button {
+    outline: none;
+    border: none;
+    height: 70px;
+    border-radius: 12px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 19px;
+    cursor: pointer;
+    color: white;
+    background-color: #16be5c;
+}
+
+.file-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 25px 15px;
+    background-color: #1bad58;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 19px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#file-name {
+    padding-top: 10px;
+    font-size: 15px;
+    color: #666;
+}
