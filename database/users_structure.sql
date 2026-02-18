@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `magazine` (
   UNIQUE KEY `owner` (`owner`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(13) NOT NULL AUTO_INCREMENT,
   `title` varchar(25) NOT NULL,
@@ -18,6 +19,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `magazine` int(13) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -30,5 +32,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `username` (`username`) USING HASH
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
 INSERT INTO `users` (`id`, `username`, `phone`, `avatar`, `role`) VALUES
-(1, 'hadesray', '+79538458598', 'hadesray_1770566400.jpg', 'user');
+(1, 'hadesray', '+79538458598', 'default_avatar.jpg', 'user');

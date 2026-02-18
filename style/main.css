@@ -81,7 +81,7 @@ select {
     border: none;
     border-radius: 50px;
     padding-left: 20px;
-    padding-right: 25px;
+    padding-right: 45px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -132,17 +132,29 @@ select {
     margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 25px;
+    gap: 20px;
+}
+
+#top-content {
+    overflow: hidden;
+    display: inline-block;
+    height: 340px;
+    width: 100%;
+    border-radius: 12px;
 }
 
 #top-content img {
-    height: 350px;
     width: 100%;
-    border-radius: 12px;
-    margin-bottom: 10px;
+    height: 100%;
+    transition: all 500ms;
+}
+
+#top-content img:hover {
+    transform: scale(1.1);
 }
 
 #sale {
+    color: #19ac56;
     margin-bottom: 10px;
 }
 

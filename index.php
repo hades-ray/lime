@@ -6,6 +6,12 @@
     // Проверяем, авторизован ли пользователь
     $isLoggedIn = isset($_SESSION['username']);
     $username = $isLoggedIn ? $_SESSION['username'] : '';
+
+    // Получаем товары этого магазина по ID
+    $query=("SELECT * FROM products");
+    $stmt = $db->prepare($query);
+    $stmt->execute();
+    $products_result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -54,19 +60,30 @@
         </div>
     </div> -->
     <div class="products">
+        <?php 
+        if ($products_result->num_rows > 0) {
+            while ($product = $products_result->fetch_assoc()) {
+        ?>
         <div class="card">
             <a href="#"> <!--ссылка на товар-->
                 <div id="top-content">
-                    <img src="img/9.jpg" alt="Фото товара">
+                    <img src="uploads/products/<?php echo htmlspecialchars($product['photo']) ?>" alt="Фото товара">
                 </div>
                 <div id="bottom-content">
-                    <h4 id="sale">Цена 1</h4>
-                    <h5 id="name">Карточка 1</h5>
-                    <h5 id="rate">Рейтинг товара</h5>
+                    <h4 id="sale"><?php echo htmlspecialchars($product['price']) ?></h4>
+                    <h5 id="name"><?php echo htmlspecialchars($product['title']) ?></h5>
+                    <h5 id="rate">Рейтинг</h5>
                 </div>
             </a>    
             <button id="basket">Добавить в корзину</button> <!--кнопка добавления товара в корзину-->
         </div>
+        <?php 
+        }
+            } else {
+            echo "<h3 id='empty'>В этом магазине пока нет товаров</h3>";
+        }
+        $stmt->close();
+        ?>
     </div>
 </body>
 </html>

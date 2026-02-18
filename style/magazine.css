@@ -112,3 +112,9 @@ header {
 .right-content p {
     padding-bottom: 25px;
 }
+
+#empty {
+    width: 90%;
+    margin-left: 5%;
+    padding-bottom: 50px;
+}
