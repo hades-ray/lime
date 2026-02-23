@@ -29,6 +29,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/profile.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Профиль пользователя <?php echo htmlspecialchars($username); ?></title>
 </head>
 <body>
@@ -66,5 +67,11 @@
             <?php endif; ?>
         </div>
     </div>
+<script> 
+   $(function(){
+      $('.footer').load("footer.php"); 
+   });
+</script> 
+    <div class="footer"></div>
 </body>
 </html>

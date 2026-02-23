@@ -2,14 +2,32 @@
     // Запускаем сессию
     session_start();
     require_once("config.php");
-
+    
     // Проверяем, авторизован ли пользователь
-    $isLoggedIn = isset($_SESSION['username']);
+    $isLoggedIn = isset($_SESSION['username']) && isset($_SESSION['role']);
+    $role = $isLoggedIn ? $_SESSION['role'] : '';
     $username = $isLoggedIn ? $_SESSION['username'] : '';
-
-    // Получаем товары этого магазина по ID
-    $query=("SELECT * FROM products");
-    $stmt = $db->prepare($query);
+    
+    // Получаем выбранную категорию из GET
+    $selected_category = isset($_GET['category']) ? $_GET['category'] : '';
+    
+    // Получаем все категории из таблицы categories
+    $cat_query = "SELECT * FROM categories";
+    $stmt = $db->prepare($cat_query);
+    $stmt->execute();
+    $categories_result = $stmt->get_result();
+    
+    // Получаем товары с фильтрацией по названию категории
+    if (!empty($selected_category) && $selected_category != 'all') {
+        // Фильтруем по текстовому полю category в таблице products
+        $query = "SELECT * FROM products WHERE type = ? ORDER BY id DESC";
+        $stmt = $db->prepare($query);
+        $stmt->bind_param("s", $selected_category); // "s" для строки
+    } else {
+        $query = "SELECT * FROM products ORDER BY id DESC";
+        $stmt = $db->prepare($query);
+    }
+    
     $stmt->execute();
     $products_result = $stmt->get_result();
 ?>
@@ -34,19 +52,36 @@
         </div>
         <div class="menu">
             <div class="select">
-                <select name="categories" id="cat" >
-                    <option hidden>Категория</option>
-                    <option value="Одежда и обувь">Одежда и обувь</option>
-                    <option value="Электроника">Электроника</option>
-                    <option value="Товары для дома">Товары для дома</option>
-                </select>
+                <!-- Форма фильтрации -->
+                <form method="get" id="filter-form">
+                    <select id="cat" name="category" onchange="document.getElementById('filter-form').submit();">
+                        <option hidden <?php echo (empty($selected_category) || $selected_category == 'all') ? 'selected' : ''; ?>>Категория</option>
+                        <option value="all" <?php echo ($selected_category == 'all') ? 'selected' : ''; ?>>Все категории</option>
+                        <?php 
+                        if ($categories_result->num_rows > 0) {
+                            while ($categories = $categories_result->fetch_assoc()) {
+                        ?>
+                            <option value="<?php echo htmlspecialchars($categories['title']) ?>" 
+                                <?php echo ($selected_category == $categories['title']) ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($categories['title']) ?>
+                            </option>
+                        <?php 
+                            }
+                        } else {
+                            echo "<option>Пусто</option>";
+                        }
+                        ?>
+                    </select>
+                </form>
             </div>
             <div class="link">
-                <?php if ($isLoggedIn): ?>
-                    <a href="profile.php">Профиль (<?php echo htmlspecialchars($username); ?>)</a>
-                <?php else: ?>
-                    <a href="login.php">Войти</a>
-                <?php endif; ?>
+            <?php if ($isLoggedIn && $role == 'user'): ?>
+                <a href="profile.php">Профиль (<?php echo htmlspecialchars($username); ?>)</a>
+            <?php elseif ($isLoggedIn && $role == 'admin'): ?>
+                <a href="admin-panel.php">Панель администратора</a>
+            <?php else: ?>
+                <a href="login.php">Войти</a>
+            <?php endif; ?>
             </div>
         </div>
     </header>
@@ -67,6 +102,7 @@
         <div class="card">
             <a href="#"> <!--ссылка на товар-->
                 <div id="top-content">
+                    
                     <img src="uploads/products/<?php echo htmlspecialchars($product['photo']) ?>" alt="Фото товара">
                 </div>
                 <div id="bottom-content">
@@ -74,8 +110,12 @@
                     <h5 id="name"><?php echo htmlspecialchars($product['title']) ?></h5>
                     <h5 id="rate">Рейтинг</h5>
                 </div>
-            </a>    
-            <button id="basket">Добавить в корзину</button> <!--кнопка добавления товара в корзину-->
+            </a>
+            <?php if ($isLoggedIn && $role == 'admin'): ?>
+                <button id="delete" type="submit">Удалить товар</button>
+            <?php else: ?>
+                <button id="basket">Добавить в корзину</button><!--кнопка добавления товара в корзину-->
+            <?php endif; ?>
         </div>
         <?php 
         }

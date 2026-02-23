@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-family: 'Montserrat';
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header p {
+    font-weight: 800;
+    font-size: 46px;
+}
+
+#logo {
+    width: 110px;
+}
+
+.user-info {
+    font-family: 'Montserrat';
+    display: flex;
+    flex-direction: row;
+    width: 86%;
+    height: 75vh;
+    margin: auto;
+    border-radius: 50px;
+    background-color: #ebebeb;
+}
+
+.info-left {
+    width: 30%;
+}
+
+.avatar-container {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
+    margin-bottom: 15px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#username {
+    margin-bottom: 50px;
+}
+
+#logout {
+    margin: auto;
+    width: 20%;
+    padding: 12px 30px;
+    border-radius: 12px;
+    border: 2px solid #ff5f5f;
+    outline: none;
+    transition: all 200ms;
+}
+
+#logout:hover {
+    background-color: #ff5f5f;
+    color: #ebebeb;
+}
+
+.info-right {
+    padding-top: 40px;
+    padding-left: 40px;
+    width: 70%;
+}
+
+#create, #magazine {
+    background-color: #16be5c;
+    padding: 12px 17px;
+    border-radius: 12px;
+    color: white;
+}
+
+.new-categories {
+    background-color: #c2c2c2;
+    border-radius: 50px;
+    height: 40%;
+    width: 45%;
+}
+
+.new-categories form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 10%;
+    gap: 20px;
+}
+
+form input, form button {
+    outline: none;
+    border: none;
+    height: 70px;
+    font-family: 'Montserrat';
+    font-size: 19px;
+    font-weight: 500;
+    border-radius: 12px;
+}
+
+form input {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+form button {
+    background-color: #16be5c;
+    cursor: pointer;
+    color: white;
+    transition: all 200ms;
+}
+
+form button:hover {
+    background-color: #11c05a;
+}

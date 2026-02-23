@@ -5,6 +5,7 @@ require_once("config.php");
 if(isset($_POST['reg'])){
     $username = $_POST['username'];
     $phone = $_POST['phone'];
+    $password = $_POST['password'];
     
     // Проверка на существующего пользователя
     $check = $db->prepare("SELECT id FROM users WHERE username = ?");
@@ -14,8 +15,8 @@ if(isset($_POST['reg'])){
     
     if($result->num_rows == 0) {
         // Сохраняем пользователя
-        $stmt = $db->prepare("INSERT INTO users (username, phone, role) VALUES (?, ?, 'user')");
-        $stmt->bind_param("ss", $username, $phone);
+        $stmt = $db->prepare("INSERT INTO users (username, password, phone) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $password, $phone);
         
         if($stmt->execute()) {
             // Получаем ID нового пользователя
@@ -56,6 +57,7 @@ if(isset($_POST['reg'])){
     <form class="login" method="post">
         <input id="input" name="phone" type="phone" placeholder="Введите номер телефона">
         <input id="input" name="username" type="text" placeholder="Введите логин">
+        <input id="input" name="password" type="text" placeholder="Введите пароль">
         <input id="login" name="reg" type="submit" value="Войти">
         <div class="not-reg">
             <p>Есть аккаунт?</p>

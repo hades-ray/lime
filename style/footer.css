@@ -1,0 +1,24 @@
+footer {
+    margin-top: 100px;
+    padding-left: 7%;
+    padding-right: 7%;
+    height: 20vh;
+    background-color: #bebebe;
+    color: white;
+}
+
+footer a {
+    color: #16be5c;
+}
+
+h1 {
+    padding-top: 20px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+

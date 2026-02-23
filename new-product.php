@@ -7,6 +7,11 @@ if (!isset($_SESSION['username'])) {
 
 require_once("config.php");
 
+$cat=("SELECT * FROM categories");
+    $stmt = $db->prepare($cat);
+    $stmt->execute();
+    $categories_result = $stmt->get_result();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create'])) {
     
     $title = $_POST['product-title'];
@@ -88,10 +93,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create'])) {
             <input class="input" name="product-title" type="text" placeholder="Введите название товара" required>
             <textarea class="input" name="product-description" placeholder="Напишите кратко о товаре" required></textarea>
             <select class="input" name="product-category" required>
+                <?php 
+                if ($categories_result->num_rows > 0) {
+                    while ($categories = $categories_result->fetch_assoc()) {
+                ?>
                 <option hidden>Выберите категорию товара</option>
-                <option value="Одежда и обувь">Одежда и обувь</option>
-                <option value="Электроника">Электроника</option>
-                <option value="Товары для дома">Товары для дома</option>
+                <option value="<?php echo htmlspecialchars($categories['title']) ?>"><?php echo htmlspecialchars($categories['title']) ?></option>
+                <?php 
+                }
+                    } else {
+                    echo "<h3 id='empty'>В этом магазине пока нет товаров</h3>";
+                }
+                ?>
             </select>
 
             <!-- Поле для загрузки фото с отображением имени файла -->
