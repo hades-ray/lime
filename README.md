@@ -2,12 +2,6 @@
   <h1>🍋 Lime Marketplace</h1>
   <p><strong>Учебный проект маркетплейса на PHP и MySQL</strong></p>
   <p>
-    <img src="https://img.shields.io/badge/PHP-7.4%2B-777BB4?style=flat-square&logo=php" alt="PHP 7.4+">
-    <img src="https://img.shields.io/badge/MySQL-5.7%2B-4479A1?style=flat-square&logo=mysql" alt="MySQL 5.7+">
-    <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License MIT">
-    <img src="https://img.shields.io/github/last-commit/hades-ray/lime?style=flat-square" alt="Last Commit">
-  </p>
-  <p>
     <a href="#основные-возможности">Возможности</a> •
     <a href="#быстрый-старт">Быстрый старт</a> •
     <a href="#архитектура-проекта">Архитектура</a> •
